@@ -24,8 +24,9 @@ public class Solution {
 
         for (int i = 0; list.size()-i >2; i++) {
                 summ = list.get(i) + list.get(i+1) + list.get(i+2);
+                list2.add(summ);
                 if (summ > temp) {
-                    list2.add(summ);
+
                     count2++;
                     temp = summ;
                 }
@@ -36,10 +37,11 @@ public class Solution {
             if (list2.get(i) <= list2.get(i-1)) {
                 list2.remove(i);
             }
-
         }
+        System.out.println(count);
 
-        //System.out.println(list2.size());
+        System.out.println(list2.size());
+        System.out.println(count2);
         }
 
 
