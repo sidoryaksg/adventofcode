@@ -45,21 +45,5 @@ public class Solution {
         }
 
 
-    public static List<Integer> readInFile (String file){
-        List<Integer> list = new ArrayList<>();
-        try (BufferedReader reader =
-                     new BufferedReader(new FileReader(file))) {
 
-            while (reader.ready()) {
-
-                list.add(Integer.parseInt(reader.readLine()));
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-
-
-        }
-    return list;
-    }
 }
