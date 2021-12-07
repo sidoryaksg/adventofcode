@@ -8,10 +8,43 @@ import java.util.List;
 public class Solution {
     public static void main(String[] args) throws FileNotFoundException {
         String file = "D:\\repos\\sidoryak\\adventofcode\\day1\\task1\\in.txt";
-        String read;
-        List<Integer> list = new ArrayList<>();
-        int count = 1;
+        List<Integer> list = readInFile(file);
+        List<Integer> list2 = new ArrayList<>();
+        int count = 0;
+        int count2 = 0;
+        int summ = 0;
+        int temp = 0;
 
+        for (int i = 1; i < list.size(); i++) {
+            if ((list.get(i)) > (list.get(i-1))) {
+                //System.out.println(list.get(i));
+                count++;
+            }
+        }
+
+        for (int i = 0; list.size()-i >2; i++) {
+                summ = list.get(i) + list.get(i+1) + list.get(i+2);
+                if (summ > temp) {
+                    list2.add(summ);
+                    count2++;
+                    temp = summ;
+                }
+            }
+
+
+        for (int i = 1; i < list2.size(); i++) {
+            if (list2.get(i) <= list2.get(i-1)) {
+                list2.remove(i);
+            }
+
+        }
+
+        //System.out.println(list2.size());
+        }
+
+
+    public static List<Integer> readInFile (String file){
+        List<Integer> list = new ArrayList<>();
         try (BufferedReader reader =
                      new BufferedReader(new FileReader(file))) {
 
@@ -20,26 +53,11 @@ public class Solution {
                 list.add(Integer.parseInt(reader.readLine()));
             }
 
-            for (int i = 1; i < list.size(); i++) {
-                if ((list.get(i)) > (list.get(i-1))) {
-                System.out.println(list.get(i));
-                count++;
-
-                }
-            }
-
         } catch (IOException e) {
             e.printStackTrace();
 
 
         }
-
-
-
-
-
-        System.out.println(list);
-        System.out.println(count);
-
+    return list;
     }
 }
